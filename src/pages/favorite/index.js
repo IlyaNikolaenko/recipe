@@ -10,7 +10,7 @@ export class Favorite extends React.Component {
         const {dishes} =this.state;
         return (
             <>
-                <Navi />
+                <Navi fav={true}/>
                 <br/><br/>
                 <Row sm={1} md={2} lg={3} xl={4} className="mt-2 mx-auto">
                     {dishes.map((item, index) => (

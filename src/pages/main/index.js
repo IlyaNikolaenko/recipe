@@ -30,7 +30,7 @@ export class Main extends React.Component {
         const {dish} = this.state;
         return (
             <>
-                <Navi />
+                <Navi fav={false}/>
                 <br/><br/>
                 <Card style={{width: "30rem"}} bg="light" className='mx-auto my-3 '>
                     <Card.Img variant="top" src={dish.strImageSource || logo} />

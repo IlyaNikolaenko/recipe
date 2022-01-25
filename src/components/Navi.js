@@ -9,13 +9,18 @@ export class Navi extends React.Component {
         this.setState({show: val})
     }
     render() {
+        const {fav} = this.props
         return (
             <Navbar className='justify-content-lg-center' fixed='top' bg="dark" variant='dark'>
                     <Nav>
                         <Nav.Link href="#/">Random dish</Nav.Link>
                         <Nav.Link href="#/favorite">Favorite dishes</Nav.Link>
-                        <Nav.Link onClick={() => this.handleShow(true)}>Add dish</Nav.Link>
-                        <AddDish handleShowFunc = {(val) => this.handleShow(val)} show ={this.state.show}/>
+                        {fav &&
+                            <>
+                                <Nav.Link onClick={() => this.handleShow(true)}>Add dish</Nav.Link>
+                                <AddDish handleShowFunc = {(val) => this.handleShow(val)} show ={this.state.show}/>
+                            </>
+                        }
                     </Nav>
             </Navbar>
         )
