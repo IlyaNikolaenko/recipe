@@ -33,6 +33,7 @@ export class AddDish extends React.Component {
             localStorage.setItem('dishes', JSON.stringify(this.state.dishes))
         });
         this.handleClose();
+        window.location.reload();
     }
 
     render() {
@@ -58,7 +59,7 @@ export class AddDish extends React.Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="light" onClick={this.saveDish} href="/favorite">Save dish</Button>
+                    <Button variant="light" href="#/favorite" onClick={this.saveDish} >Save dish</Button>
                 </Modal.Footer>
             </Modal>)
     }
