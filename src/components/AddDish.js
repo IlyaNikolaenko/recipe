@@ -5,22 +5,18 @@ export class AddDish extends React.Component {
     state = {
         dish:'',
         dishes: JSON.parse(localStorage.getItem('dishes')) || [],
-        value: '',
-        textareaValue: ''
     };
 
     handleChangeInput = (event) => {
-        this.setState({value: event.target.value});
         this.setState({dish: {
-                strMeal: this.state.value,
-                strInstructions: this.state.textareaValue
+                strMeal: event.target.value,
+                strInstructions: this.state.dish.strInstructions
             }})
     }
     handleChangeTextarea = (event) => {
-        this.setState({textareaValue: event.target.value});
         this.setState({dish: {
-                strMeal: this.state.value,
-                strInstructions: this.state.textareaValue
+                strMeal: this.state.dish.strMeal,
+                strInstructions: event.target.value
             }})
     }
     handleClose = () => {
@@ -37,8 +33,6 @@ export class AddDish extends React.Component {
     }
 
     render() {
-        const {value, textareaValue} = this.state;
-
         return(
             <Modal show={this.props.show} onHide={this.handleClose}>
                 <Modal.Header closeButton>
@@ -49,17 +43,17 @@ export class AddDish extends React.Component {
                     <Form>
                         <Form.Group className="mb-3">
                             <Form.Label>Dish title</Form.Label>
-                            <Form.Control type="title" placeholder="Pasta" onChange={this.handleChangeInput}  value={value}/>
+                            <Form.Control type="title" placeholder="Pasta" onChange={this.handleChangeInput} />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Dish instruction</Form.Label>
-                            <Form.Control as="textarea" rows={3} onChange={this.handleChangeTextarea} value={textareaValue}/>
+                            <Form.Control as="textarea" rows={3} onChange={this.handleChangeTextarea} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="light" href="#/favorite" onClick={this.saveDish} >Save dish</Button>
+                    <Button variant="light" onClick={this.saveDish} >Save dish</Button>
                 </Modal.Footer>
             </Modal>)
     }
