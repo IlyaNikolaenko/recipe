@@ -9,13 +9,13 @@ export class AddDish extends React.Component {
 
     handleChangeInput = (event) => {
         this.setState({dish: {
-                strMeal: event.target.value,
-                strInstructions: this.state.dish.strInstructions
+                ...this.state.dish,
+                strMeal: event.target.value
             }})
     }
     handleChangeTextarea = (event) => {
         this.setState({dish: {
-                strMeal: this.state.dish.strMeal,
+                ...this.state.dish,
                 strInstructions: event.target.value
             }})
     }
