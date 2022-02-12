@@ -1,7 +1,7 @@
-import './App.css';
+import '../App.css';
 import {Route, Routes} from "react-router-dom";
-import {Main} from "./pages/main";
-import {Favorite} from "./pages/favorite";
+import {Main} from "../pages/main";
+import {Favorite} from "../pages/favorite";
 
 function App() {
   return (
